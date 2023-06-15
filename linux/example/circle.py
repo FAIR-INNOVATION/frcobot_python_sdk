@@ -1,6 +1,6 @@
 import frrpc
 
-# 与机器人控制器建立连接，连接成功返回一个机器人对象
+# A connection is established with the robot controller. A successful connection returns a robot object
 robot = frrpc.RPC('192.168.58.2')
 
 J1=[121.381,-97.108,-123.768,-45.824,89.877,-47.296]
@@ -19,5 +19,5 @@ dP3=[10.000,10.000,10.000,10.000,10.000,10.000]
 pa3=[0.0,0.0,100.0,180.0]
 dP=[10.000,10.000,10.000,10.000,10.000,10.000]
 
-robot.MoveJ(J1,P1,0,0,100.0,180.0,100.0,eP1,-1.0,0,dP1)    #关节空间运动PTP
-robot.Circle(J2,P2,pa2,eP2,J3,P3,pa3,eP3,100.0,0,dP)    #笛卡尔空间整圆运动
+robot.MoveJ(J1,P1,0,0,100.0,180.0,100.0,eP1,-1.0,0,dP1)    #Joint space motionPTP
+robot.Circle(J2,P2,pa2,eP2,J3,P3,pa3,eP3,100.0,0,dP)    #Circular motion in Cartesian space

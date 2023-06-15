@@ -1,11 +1,11 @@
 import frrpc
 import time
 
-# 与机器人控制器建立连接，连接成功返回一个机器人对象
+# A connection is established with the robot controller. A successful connection returns a robot object
 robot = frrpc.RPC('192.168.58.2')
 
-mode = 2  #工具坐标系增量运动
-n_pos = [0.0,0.0,0.5,0.0,0.0,0.0]   #笛卡尔空间位姿增量
+mode = 2  #Tool coordinate system incremental exercise
+n_pos = [0.0,0.0,0.5,0.0,0.0,0.0]   #Descartes space increase
 gain = [0.0,0.0,1.0,0.0,0.0,0.0]
 acc = 0.0
 vel = 0.0

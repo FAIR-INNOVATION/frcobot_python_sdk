@@ -1,6 +1,6 @@
 import frrpc
 
-# 与机器人控制器建立连接，连接成功返回一个机器人对象
+# A connection is established with the robot controller. A successful connection returns a robot object
 robot = frrpc.RPC('192.168.58.2')
 
 J1=[95.442,-101.149,-98.699,-68.347,90.580,-47.174]
@@ -16,6 +16,6 @@ P3=[-423.044,229.703,241.080,-173.990,-5.772,123.971]
 eP3=[0.000,0.000,0.000,0.000]
 dP3=[0.000,0.000,0.000,0.000,0.000,0.000]
 
-robot.MoveL(J1,P1,0,0,100.0,180.0,100.0,-1.0,eP1,0,1,dP1)   #笛卡尔空间直线运动
+robot.MoveL(J1,P1,0,0,100.0,180.0,100.0,-1.0,eP1,0,1,dP1)   #Rectilinear motion in Cartesian space
 robot.MoveL(J2,P2,0,0,100.0,180.0,100.0,-1.0,eP2,0,0,dP2)
 robot.MoveL(J3,P3,0,0,100.0,180.0,100.0,-1.0,eP3,0,0,dP3)

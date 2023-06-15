@@ -1,15 +1,15 @@
 import frrpc
 import time
 
-# 与机器人控制器建立连接，连接成功返回一个机器人对象
+# A connection is established with the robot controller. A successful connection returns a robot object
 robot = frrpc.RPC('192.168.58.2')
 
-# 机器人单轴点动
-robot.StartJOG(0,1,0,20.0,20.0,30.0)    # 单关节运动,StartJOG为非阻塞指令，运动状态下接收其他运动指令（包含StartJOG）会被丢弃
+# Robot single axis point
+robot.StartJOG(0,1,0,20.0,20.0,30.0)    # Single joint motion, StartJOG is a non blocking command, and other motion commands (including StartJOG) received during motion will be discarded
 time.sleep(1)
-#机器人单轴点动减速停止
+#Robot single axis jog deceleration stop
 # robot.StopJOG(1)
-#机器人单轴点动立即停止
+#Immediate stop of robot single axis jog
 robot.ImmStopJOG()
 robot.StartJOG(0,2,1,20.0,20.0,30.0)
 time.sleep(1)
@@ -27,12 +27,12 @@ robot.StartJOG(0,6,1,20.0,20.0,30.0)
 time.sleep(1)
 robot.ImmStopJOG()
 
-# 基坐标
-robot.StartJOG(2,1,0,20.0,20.0,100.0)  #基坐标系下点动
+# Base coordinate
+robot.StartJOG(2,1,0,20.0,20.0,100.0)  #Jogging in the base coordinate system
 time.sleep(1)
-#机器人单轴点动减速停止
+#Robot single axis jog deceleration stop
 # robot.StopJOG(3)
-# #机器人单轴点动立即停止
+# #Immediate stop of robot single axis jog
 robot.ImmStopJOG()
 robot.StartJOG(2,1,1,20.0,20.0,100.0)
 time.sleep(1)
@@ -53,12 +53,12 @@ robot.StartJOG(2,6,1,20.0,20.0,100.0)
 time.sleep(1)
 robot.ImmStopJOG()
 
-# 工具坐标
-robot.StartJOG(4,1,0,20.0,20.0,100.0)  #工具坐标系下点动
+# Tool coordinate
+robot.StartJOG(4,1,0,20.0,20.0,100.0)  #Point in the tool coordinate system
 time.sleep(1)
-#机器人单轴点动减速停止
+#Robot single axis jog deceleration stop
 # robot.StopJOG(5)
-# #机器人单轴点动立即停止
+# #Immediate stop of robot single axis jog
 robot.ImmStopJOG()
 robot.StartJOG(4,1,1,20.0,20.0,100.0)
 time.sleep(1)
@@ -79,12 +79,12 @@ robot.StartJOG(4,6,1,20.0,20.0,100.0)
 time.sleep(1)
 robot.ImmStopJOG()
 
-# 工件坐标
-robot.StartJOG(8,1,0,20.0,20.0,100.0)  #工件坐标系下点动
+# Job coordinate
+robot.StartJOG(8,1,0,20.0,20.0,100.0)  #Point in the workpiece coordinate system
 time.sleep(1)
-#机器人单轴点动减速停止
+#Robot single axis jog deceleration stop
 # robot.StopJOG(9)
-# #机器人单轴点动立即停止
+# #Immediate stop of robot single axis jog
 robot.ImmStopJOG()
 robot.StartJOG(8,1,1,20.0,20.0,100.0)
 time.sleep(1)

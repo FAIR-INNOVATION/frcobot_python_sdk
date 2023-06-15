@@ -1,6 +1,6 @@
 import frrpc
 
-# 与机器人控制器建立连接，连接成功返回一个机器人对象
+# A connection is established with the robot controller. A successful connection returns a robot object
 robot = frrpc.RPC('192.168.58.2')
 
 J1 = [114.578,-117.798,-97.745,-54.436,90.053,-45.216]
@@ -15,9 +15,9 @@ J4 = [154.766,-87.036,-135.672,-49.045,90.739,-45.223]
 P4 = [-277.255,272.958,205.452,179.289,1.765,109.966]
 
 robot.MoveJ(J1,P1,0,0,100.0,180.0,100.0,eP1,-1.0,0,dP1)
-robot.NewSplineStart(1)    #样条运动开始
-robot.NewSplinePoint(J1,P1,0,0,50.0,50.0,50.0,0.0,0)    #样条控制点
+robot.NewSplineStart(1)    #Spline motion start
+robot.NewSplinePoint(J1,P1,0,0,50.0,50.0,50.0,0.0,0)    #Spline control point
 robot.NewSplinePoint(J2,P2,0,0,50.0,50.0,50.0,0.0,0)
 robot.NewSplinePoint(J3,P3,0,0,50.0,50.0,50.0,0.0,0)
 robot.NewSplinePoint(J4,P4,0,0,50.0,50.0,50.0,0.0,1)
-robot.NewSplineEnd()       #样条运动结束
+robot.NewSplineEnd()       #Spline motion end

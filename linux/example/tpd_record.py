@@ -2,22 +2,22 @@ import frrpc
 import time
 
 
-# 与机器人控制器建立连接，连接成功返回一个机器人对象
+# A connection is established with the robot controller. A successful connection returns a robot object
 robot = frrpc.RPC('192.168.58.2')
 
-type = 1  # 数据类型，1-关节位置
-name = 'tpd2023'  # 轨迹名
-period = 4  #采样周期，2ms或4ms或8ms
-di_choose = 0 # di输入配置
-do_choose = 0 # do输出配置
-robot.SetTPDParam(type, name, period, di_choose, do_choose)    #配置TPD参数
+type = 1  # Data type, 1-joint position
+name = 'tpd2023'  # Track name
+period = 4  #Sampling period, fixed value, 2ms or 4ms or 8ms
+di_choose = 0 # di input configuration
+do_choose = 0 # do output configuration
+robot.SetTPDParam(type, name, period, di_choose, do_choose)    #Configure TPD Parameter
 
-robot.Mode(1)  # 机器人切入手动模式
-time.sleep(1)  
-robot.DragTeachSwitch(1)  #机器人切入拖动示教模式
-robot.SetTPDStart(type, name, period, di_choose, do_choose)   # 开始记录示教轨迹
+robot.Mode(1)  # The robot goes into manual mode
+time.sleep(1)
+robot.DragTeachSwitch(1)  #The robot goes into drag teaching mode
+robot.SetTPDStart(type, name, period, di_choose, do_choose)   # Start recording the teaching track
 time.sleep(30)
-robot.SetWebTPDStop()  # 停止记录示教轨迹
-robot.DragTeachSwitch(0)  #机器人切入非拖动示教模式
+robot.SetWebTPDStop()  # Stop recording instructional tracks
+robot.DragTeachSwitch(0)  #The robot enters the non-drag teaching mode
 
-# robot.SetTPDDelete('tpd2023')   # 删除TPD轨迹
+# robot.SetTPDDelete('tpd2023')   # Delete the TPD trace
